@@ -15,3 +15,5 @@ const asyncHandler = (fn) =>(req , res, next)=>{
         res.status(500).json({msg:e.message})
     }
 }
+
+export default asyncHandler;

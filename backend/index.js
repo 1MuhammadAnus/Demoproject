@@ -11,8 +11,9 @@ const app =express()
 app.use(cookieParser())
 app.use(express.json())
 app.use('/api/v1' , rooter)
-app.get('/' , (req , res)=>{
-    res.send('server is on')
-})
+// app.post('/' , (req , res)=>{
+//     console.log(req.body)
+//     res.send('server is on')
+// })
 app.listen(process.env.PORT || 5000 , () => console.log('server is on at' , process.env.PORT))
 

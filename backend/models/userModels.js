@@ -4,21 +4,21 @@ import jwt from "jsonwebtoken";
 
 const userSchema = new Schema({
     username:{
-        type: string,
+        type: String,
         required : true,
         unique:true , 
         trim : true ,
         lowercase : true,
     },
     email:{
-        type: string,
+        type: String,
         required : true,
         unique : true,
         trim : true,
         lowercase : true,
     },
     password:{
-        type : string,
+        type : String,
         required : true,
     },
     watchVideo : [
@@ -52,11 +52,11 @@ const userSchema = new Schema({
 
 userSchema.pre('save' , async function(next){
     if(this.isModified('password')){
-        this.password= await bycrypt.hash(this.password,10)
+        this.password= await bcrypt.hash(this.password,10)
     }
 })
 userSchema.methods.isPasswordcorrect = async function (pass){
-    return await bycrypt.compare(pass , this.password)
+    return await bcrypt.compare(pass , this.password)
 }
 
 userSchema.methods.GenerateToken = function(){

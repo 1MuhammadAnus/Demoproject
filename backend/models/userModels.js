@@ -36,14 +36,14 @@ const userSchema = new Schema({
     bio:{
         type : String,
     },
-    followers:{
-        type : [Types.ObjectId],
-        ref : "user"
-    },
-    following:{
-        type : [Types.ObjectId],
-        ref : "user"
-    },
+    // followers:{
+    //     type : [Types.ObjectId],
+    //     ref : "user"
+    // },
+    // following:{
+    //     type : [Types.ObjectId],
+    //     ref : "user"
+    // },
     isAdmin :{
         type : Boolean,
         default : false,

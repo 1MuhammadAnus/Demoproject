@@ -4,13 +4,13 @@ import {upload} from '../middleware/Multer.modelwere.js'
 const rooter = Router();
 
 rooter.route('/register').post(
-    upload.files([
+    upload.fields([
         {
             name : 'avatar',
             maxCount : 1
         },
         {
-            name : 'coverimage',
+            name : 'coverImage',
             maxCount : 1
         }
     ]),

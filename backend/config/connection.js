@@ -1,17 +1,13 @@
 import mongoose from "mongoose";
-
 const connection = async()=>{
     try{
-        const con_info = await mongoose.connect('mongodb://127.0.0.1:27017/test')
+        const con_info = await mongoose.connect('mongodb+srv://seoexpert1223:chriaz987@cluster0.oejhh3b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
         if(con_info){
             console.log('connected to db')
-        }else {
-            console.log('conn error')
         }
     }
     catch (error) {
         console.log('error',error)
-        throw new error
         process.exit(1)
     }
 }

@@ -44,6 +44,9 @@ const userSchema = new Schema({
     //     type : [Types.ObjectId],
     //     ref : "user"
     // },
+    refresh_token :{
+        type: String
+    },
     isAdmin :{
         type : Boolean,
         default : false,
@@ -55,7 +58,7 @@ userSchema.pre('save' , async function(next){
         this.password= await bcrypt.hash(this.password,10)
     }
 })
-userSchema.methods.isPasswordcorrect = async function (pass){
+ userSchema.methods.isPasswordcorrect = async function (pass){
     return await bcrypt.compare(pass , this.password)
 }
 
@@ -83,5 +86,4 @@ userSchema.methods.GenerateRefreshToken = function(){
 
 )
 }
-
 export const User = Mongoose.model("user", userSchema)
